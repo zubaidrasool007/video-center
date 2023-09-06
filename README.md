@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 First clone the GitHub repo:
+```bash
 git clone https://github.com/zubaidrasool007/video-center.git
+```
 
 ## Install Packages
 - To install the packages move into the directory
