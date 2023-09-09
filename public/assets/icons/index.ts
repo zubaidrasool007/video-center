@@ -19,5 +19,13 @@ export { OutlineUserIcon } from "./OutlineUserIcon";
 export { DocumentTextIcon } from "./DocumentTextIcon";
 export { OutlineNotificationIcon } from "./OutlineNotificationIcon";
 export { ColorSwatchIcon } from "./ColorSwatchIcon";
-export { NavAvatar } from './NavAvatar'
-export { MicrPhoneIcon } from './MicrPhoneIcon'
+export { NavAvatar } from "./NavAvatar";
+export { MicrPhoneIcon } from "./MicrPhoneIcon";
+export { OutlineArrowLeft } from "./OutlineArrowLeft";
+export { SMSIcon } from './SMSIcon'
+export { OutlineCloseCircleIcon } from './OutlineCloseCircleIcon'
+export { ProfileUserIcon } from './ProfileUserIcon'
+export { VideoIcon } from './VideoIcon'
+export { AddSquareIcon } from './AddSquareIcon'
+export { ArrowSwapIcon } from './ArrowSwapIcon'
+

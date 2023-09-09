@@ -4,6 +4,7 @@ import { MicrPhoneIcon, NavAvatar } from "../../../public/assets/icons";
 import { Search } from "../HelpAssistant/Search/Search";
 import Image from "next/image";
 import { UserAvatr } from "../../../public/assets/images";
+import { Collaboraters } from "../Collaborater/Collaboraters";
 
 export const TopNavBar = () => {
   return (
@@ -41,6 +42,7 @@ export const TopNavBar = () => {
         }
         sx={{ background: "#F9F9F9" }}
       />
+      <Collaboraters />
       <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
         <Box textAlign="end">
           <Typography fontSize="16px" fontWeight={500} color="#000">

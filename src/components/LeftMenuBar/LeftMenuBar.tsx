@@ -14,7 +14,7 @@ import { OutlineArrowRightIcon } from "../../../public/assets/icons";
 import Image from "next/image";
 import { MiniBar } from "../../../public/assets/images";
 
-export const LeftMenuBar = ({isSideBar}:any) => {
+export const LeftMenuBar = ({ isSideBar }: any) => {
   return (
     <Box
       sx={{
@@ -26,8 +26,8 @@ export const LeftMenuBar = ({isSideBar}:any) => {
         alignItems: "center",
         justifyContent: "space-between",
         paddingTop: "24px",
-        position:'relative',
-        flexShrink:0
+        position: "relative",
+        flexShrink: 0,
       }}
     >
       <Box
@@ -37,12 +37,12 @@ export const LeftMenuBar = ({isSideBar}:any) => {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          background:"#F9F9F9",
-          borderRadius:"8px",
-          position:'absolute',
-          top:'36px',
-          right:"-13px",
-          cursor:"pointer"
+          background: "#F9F9F9",
+          borderRadius: "8px",
+          position: "absolute",
+          top: "36px",
+          right: "-13px",
+          cursor: "pointer",
         }}
         onClick={isSideBar}
       >
@@ -68,13 +68,7 @@ export const LeftMenuBar = ({isSideBar}:any) => {
             padding: "4px",
           }}
         >
-          <Image
-            src={MiniBar}
-            alt={""}
-            width={44}
-            height={44}          
-            />
-
+          <Image src={MiniBar} alt={""} width={44} height={44} />
         </Box>
         <Box
           sx={{
@@ -106,7 +100,7 @@ export const LeftMenuBar = ({isSideBar}:any) => {
             zIndex: 1,
           }}
         >
-          <AddIcon />
+          <AddIcon sx={{ stroke: "#fff" }} />
           <Box
             sx={{
               width: "40px",
