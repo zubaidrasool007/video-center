@@ -11,19 +11,21 @@ import { FP } from "../../../public/assets/images";
 import { OutlineMoreIcon } from "../../../public/assets/icons";
 import Image from "next/image";
 
-const StyledCard = styled(Card)(({ theme }) => ({
+const StyledCard = styled(Card)(({ theme, isSelected }: any) => ({
   maxWidth: 235,
   boxShadow: "none",
   borderRadius: "18px",
-  borderWidth:'1px',
-  borderStyle:'solid',
-  borderColor:'#fff'
+  borderWidth: '1px',
+  borderStyle: 'solid',
+  borderColor: '#fff',
+  backgroundColor: isSelected ? "#725DFF" : 'transparent',
+
 }));
 
-export const VideoCard = ({ ...props }: any) => {
+export const VideoCard = ({ item, isSelected, ...props }: any) => {
   return (
-    <StyledCard {...props}>
-      <Image width={235} height={214} src={FP} alt={""} />
+    <StyledCard isSelected={isSelected} {...props}>
+      <Image width={235} height={214} src={item.thumbnailUrl} alt={""} />
       <CardContent
         sx={{
           px: "14px",
@@ -38,21 +40,21 @@ export const VideoCard = ({ ...props }: any) => {
           <Typography
             variant="h5"
             component="div"
-            color="#222"
+            color={isSelected ? "#FFFFFF" : '#222'}
             fontSize="1rem"
             fontWeight={500}
           >
-            First Project
+            {item.title}
           </Typography>
           <Typography
             component="span"
             fontSize="12.405px"
-            color="#747474"
+            color={isSelected ? "#FFFFFF" : "#747474"}
             display="inline-block"
           >
             Created at:
             <Typography component="span" fontSize="12.405px" fontWeight={500}>
-              13 Aug, 2023
+              {item.uploadTime}
             </Typography>
           </Typography>
         </Box>

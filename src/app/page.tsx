@@ -8,11 +8,11 @@ import theme from "../../theme";
 
 export default function Home() {
   return (
-    // <>
-    //   <ThemeProvider theme={theme}>
-    //     <CssBaseline />
+    <>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
         <Dashboard />
-    //   </ThemeProvider>
-    // </>
+      </ThemeProvider>
+    </>
   );
 }
