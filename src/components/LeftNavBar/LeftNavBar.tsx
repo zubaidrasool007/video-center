@@ -51,17 +51,22 @@ const payment = [
     titile: "News",
   },
 ];
-export const LeftNavBar = () => {
+
+interface Props {
+  isSideBar: boolean;
+}
+
+export const LeftNavBar = ({ isSideBar }: Props) => {
   return (
     <Box
       sx={{
-        width: "308px",
+        width: isSideBar ? "308px" : "0px",
         background: "#F9F9F9",
         boxShadow: "0px 4px 18px 0px rgba(217, 217, 217, 0.25) inset",
-        px: 3,
-        py: 5,
+        padding: isSideBar ? "40px 24px" : "0px",
         flexShrink: 0,
-        transition:'all 0.5s'
+        transition: "all 0.3s",
+        overflow: "scroll",
       }}
     >
       <Box

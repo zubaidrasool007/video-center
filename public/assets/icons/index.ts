@@ -28,4 +28,5 @@ export { ProfileUserIcon } from './ProfileUserIcon'
 export { VideoIcon } from './VideoIcon'
 export { AddSquareIcon } from './AddSquareIcon'
 export { ArrowSwapIcon } from './ArrowSwapIcon'
-
+export { MessageTextIcon } from './MessageTextIcon'
+export { MenuIcon } from './MenuIcon'

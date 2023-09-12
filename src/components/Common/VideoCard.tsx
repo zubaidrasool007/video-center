@@ -13,6 +13,7 @@ import Image from "next/image";
 
 const StyledCard = styled(Card)(({ theme, isSelected }: any) => ({
   maxWidth: 235,
+  width: "100%",
   boxShadow: "none",
   borderRadius: "18px",
   borderWidth: '1px',
@@ -24,7 +25,8 @@ const StyledCard = styled(Card)(({ theme, isSelected }: any) => ({
 
 export const VideoCard = ({ item, isSelected, ...props }: any) => {
   return (
-    <StyledCard isSelected={isSelected} {...props}>
+    <StyledCard isSelected={isSelected} {...props} sx={{"& img":{
+      width:"100%"}}}>
       <Image width={235} height={214} src={item.thumbnailUrl} alt={""} />
       <CardContent
         sx={{

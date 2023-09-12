@@ -1,96 +1,107 @@
 import React from "react";
-import { Card, CardContent, Box, Input, Button, Typography } from "@mui/material";
+import {
+  Card,
+  CardContent,
+  Box,
+  Input,
+  Button,
+  Typography,
+} from "@mui/material";
 import Image from "next/image";
-import { SearchNormalIcon, ProfileUserIcon, OutlineCloseCircleIcon, VideoIcon, AddSquareIcon } from "../../../../public/assets/icons";
+import {
+  SearchNormalIcon,
+  ProfileUserIcon,
+  OutlineCloseCircleIcon,
+  VideoIcon,
+  AddSquareIcon,
+} from "../../../../public/assets/icons";
 import { SmallAvatar } from "../../../../public/assets/images";
 
 const styles = {
-    textField: {
-      width: "100%",
-      outline: "none",
-      "& input::placeholder": {
-        color: "#8B8B8B",
-        fontFamily: "Poppins",
-        fontSize: "14px",
-        fontStyle: "normal",
-        fontWeight: 400,
-        lineHeight: "normal",
-      },
-    },
-    adornmentBox: {
-      marginRight: "18px",
-    },
-    searchingFeild: {
-      display: "flex",
-      alingItem: "center",
-    },
-    searchFeild: {
-      width: "66%",
-    },
-    customButton: {
-      backgroundColor: "#F9F9F9",
-      fontSize: "12px",
-      fontStyle: "normal",
-      display: "flex",
-      padding: "2px 3px",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: "10px",
-      borderRadius: "6px",
-      border: "1px solid #F9F9F9",
-    },
-    boderLine: {
-      height: "1px",
-      backgroundColor: "#F9F9F9",
-      margin: "17px 0px",
-      width: "100%",
-    },
-    lookingCollab: {
-      margin: "16px 0px",
-    },
-    collabButtons: {
-      display: "flex",
-      marginTop: "12px",
-      gap: "8px",
-    },
-    buttonCollaboraters: {
-      display: "flex",
-      justifyContent: "space-between",
-      padding: "8px 12px",
-      gap: "8px",
-      borderRadius: "31px",
-      border: "1px solid #F9F9F9",
-      background: "#F9F9F9",
-      alingItem: "center",
-      cursor: "pointer",
-    },
-    collabsText: {
-      color: "#222",
+  textField: {
+    width: "100%",
+    outline: "none",
+    "& input::placeholder": {
+      color: "#8B8B8B",
       fontFamily: "Poppins",
-      fontSize: "12px",
+      fontSize: "14px",
       fontStyle: "normal",
-      fontWeight: "400",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
+      fontWeight: 400,
+      lineHeight: "normal",
     },
-    collabsheading: {
-      color: "#888",
-      fontFamily: "Poppins",
-      fontSize: "12px",
-      fontStyle: "normal",
-      fontWeight: "400",
-    },
-  };
+  },
+  adornmentBox: {
+    marginRight: "18px",
+  },
+  searchingFeild: {
+    display: "flex",
+    alignItems: "center",
+  },
+  searchFeild: {
+    width: "66%",
+  },
+  customButton: {
+    backgroundColor: "#F9F9F9",
+    fontSize: "12px",
+    fontStyle: "normal",
+    display: "flex",
+    padding: "2px 3px",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "10px",
+    borderRadius: "6px",
+    border: "1px solid #F9F9F9",
+  },
+  boderLine: {
+    height: "1px",
+    backgroundColor: "#F9F9F9",
+    margin: "17px 0px",
+    width: "100%",
+  },
+  lookingCollab: {
+    margin: "16px 0px",
+  },
+  collabButtons: {
+    display: "flex",
+    marginTop: "12px",
+    gap: "8px",
+  },
+  buttonCollaboraters: {
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "8px 12px",
+    gap: "8px",
+    borderRadius: "31px",
+    border: "1px solid #F9F9F9",
+    background: "#F9F9F9",
+    alingItem: "center",
+    cursor: "pointer",
+  },
+  collabsText: {
+    color: "#222",
+    fontFamily: "Poppins",
+    fontSize: "12px",
+    fontStyle: "normal",
+    fontWeight: "400",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  collabsheading: {
+    color: "#888",
+    fontFamily: "Poppins",
+    fontSize: "12px",
+    fontStyle: "normal",
+    fontWeight: "400",
+  },
+};
 
-export const DefaultSearch = () => {
+export const DefaultSearch = ({ sx }: any) => {
   return (
-    <Card>
-      <CardContent sx={{ p: 4 }}>
+    <Card sx={sx}>
+      <CardContent sx={{ px: "22px", py: "18px" }}>
         <Box sx={styles.searchingFeild}>
-          <Box sx={styles.adornmentBox}>
-            <SearchNormalIcon />
-          </Box>
+          <SearchNormalIcon sx={styles.adornmentBox} />
           <Box sx={styles.searchFeild}>
             <Input
               sx={styles.textField}
@@ -99,7 +110,15 @@ export const DefaultSearch = () => {
             />
           </Box>
           <Box sx={styles.customButton}>
-            <Button sx={{ color: "#222222", fontWeight: "500" }}>
+            <Button
+              sx={{
+                color: "#222222",
+                fontWeight: "500",
+                fontSize: "12px",
+                px: "3px",
+                py: "2px",
+              }}
+            >
               Ctrl + F
             </Button>
           </Box>
@@ -137,8 +156,11 @@ export const DefaultSearch = () => {
             3
           </Typography>
         </Typography>
-        {[...Array(3)].map(() => (
-          <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+        {[...Array(3)].map((item, i) => (
+          <Box
+            key={i}
+            sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}
+          >
             <Box sx={{ width: 27, height: 27, borderRadius: "50%" }}>
               <Image src={SmallAvatar} alt="" width={26} height={27} />
             </Box>

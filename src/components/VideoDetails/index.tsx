@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   Box,
@@ -18,14 +18,6 @@ import {
 } from "../../../public/assets/icons";
 import Image from "next/image";
 import { InviteCollaboratersModal } from "../Collaborater/InviteCollaboratersModal";
-
-
-
-const CollaboraterList = [
-  { id: 1, name: "Travis Howard", mail: "", img: "/static/images/avatar/2.jpg" },
-  { id: 2, name: "Agnes Walker", mail: "", img: "/static/images/avatar/4.jpg" },
-  { id: 3, name: "Trevor Henderson", mail: "", img: "/static/images/avatar/5.jpg" },
-];
 
 export const VideoDetails = ({ item, onClose, open }: any) => {
   const [openCollab, setOpenCollab] = useState(false);
@@ -146,7 +138,7 @@ export const VideoDetails = ({ item, onClose, open }: any) => {
                 }}
                 startIcon={<AddIcon sx={{ stroke: "#725DFF" }} />}
               >
-                Add
+                Add new
               </Button>
             </Box>
             <Box

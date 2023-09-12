@@ -21,6 +21,16 @@ const theme = createTheme({
       styleOverrides: {
         body: {
           fontFamily: "Poppins, sans-serif",
+          "::-webkit-scrollbar": {
+            display: "none",
+          },
+          "::-webkit-scrollbar-track": {
+            display: "none",
+          },
+
+          "::-webkit-scrollbar-thumb": {
+            display: "none",
+          },
         },
       },
     },
@@ -33,13 +43,13 @@ const theme = createTheme({
         },
       },
     },
-    MuiCard:{
-      styleOverrides:{
-        root:{
-          boxShadow:'none'
-        }
-      }
-    }
+    MuiCard: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+        },
+      },
+    },
   },
 });
 

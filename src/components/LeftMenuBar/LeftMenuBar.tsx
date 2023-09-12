@@ -28,13 +28,15 @@ export const LeftMenuBar = ({ isSideBar }: any) => {
         paddingTop: "24px",
         position: "relative",
         flexShrink: 0,
+        gap:2,
+        overflow:"scroll"
       }}
     >
       <Box
         sx={{
           width: "28px",
           height: "28px",
-          display: "flex",
+          display: { xs: "none", md: "flex" },
           justifyContent: "center",
           alignItems: "center",
           background: "#F9F9F9",
