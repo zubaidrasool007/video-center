@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import {
   Avatar,
   Box,
@@ -19,25 +19,32 @@ import { DefaultSearch } from "../HelpAssistant/Search/DefaultSearch";
 
 export const TopNavBar = () => {
   const [open, setOpen] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement | null>(null);
 
   const matches = useMediaQuery("(min-width:1400px)");
   const avatarMatches = useMediaQuery("(min-width:992px)");
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (open && !(event.target as HTMLElement).closest(".default-search-container")) {
+      if (
+        open &&
+        searchContainerRef.current &&
+        !searchContainerRef.current.contains(event.target as Node)
+      ) {
         setOpen(false);
       }
     }
 
-    // Attach the event listener when the component mounts
     document.addEventListener("click", handleClickOutside);
 
-    // Clean up the event listener when the component unmounts
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
   }, [open]);
+
+  const handleSearchContainerClick = (event: React.MouseEvent) => {
+    event.stopPropagation(); 
+  };
 
   return (
     <Box
@@ -105,15 +112,21 @@ export const TopNavBar = () => {
           }}
         />
         {open && (
-          <DefaultSearch
+          <Box
+            ref={searchContainerRef}
             className="default-search-container"
+            onClick={handleSearchContainerClick}
             sx={{
               position: "absolute",
-              zIndex: 9999,
+              zIndex: 1111,
               width: "100%",
               top: "73px",
             }}
+          >
+           <DefaultSearch
+            className="default-search-container"
           />
+          </Box>
         )}
       </Box>
       {matches && <Collaboraters />}

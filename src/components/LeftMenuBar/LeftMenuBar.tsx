@@ -29,7 +29,8 @@ export const LeftMenuBar = ({ isSideBar }: any) => {
         position: "relative",
         flexShrink: 0,
         gap:2,
-        overflow:"scroll"
+        overflowY: "auto",
+        overflowX:'hidden'
       }}
     >
       <Box

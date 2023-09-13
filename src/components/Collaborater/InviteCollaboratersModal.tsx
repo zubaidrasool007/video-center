@@ -9,23 +9,47 @@ import {
     Modal,
     Typography,
 } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { SMSIcon } from "../../../public/assets/icons";
 
 export const InviteCollaboratersModal = ({ open, handleClose }: any) => {
 
     const [newCollaborator, setNewCollaborator] = useState<string>("");
+    const collabModalRef = useRef<HTMLDivElement | null>(null);
 
     const handleAddCollaborator = () => {
         setNewCollaborator("");
-        handleClose();
+        handleCloseModal();
     };
 
     const handleCloseModal = () => {
-        handleClose()
+        handleClose(false)
     }
 
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+          if (
+            open &&
+            collabModalRef.current &&
+            !collabModalRef.current.contains(event.target as Node)
+          ) {
+            handleClose(false);
+          }
+        }
+    
+        document.addEventListener("click", handleClickOutside);
+    
+        return () => {
+          document.removeEventListener("click", handleClickOutside);
+        };
+      }, [open]);
+    
+      const handleSearchContainerClick = (event: React.MouseEvent) => {
+        event.stopPropagation(); 
+      };
+      
     return (
+        <Box  ref={collabModalRef}>
         <Modal
             open={open}
             onClose={handleCloseModal}
@@ -120,5 +144,6 @@ export const InviteCollaboratersModal = ({ open, handleClose }: any) => {
                 </Card>
             </Box>
         </Modal>
+        </Box>
     );
 };

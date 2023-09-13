@@ -17,6 +17,7 @@ import { VideoCard } from "../Common/VideoCard";
 import { InviteCollaboratersModal } from "../Collaborater/InviteCollaboratersModal";
 // import { GalleryTabs } from "./GalleryTabs";
 import { VideoDetails } from "@/components/VideoDetails";
+import { Collaboraters } from "../Collaborater/Collaboraters";
 
 const tabs = ["All", "Ads video", "Ai generated video", "Marketing video"];
 
@@ -133,10 +134,10 @@ export const Gallery = () => {
               alignItems: "center",
             }}
           >
-            <Typography color="#222" fontSize="14px">
+            {/* <Typography color="#222" fontSize="14px">
               Collaboraters :
-            </Typography>
-            Avatar
+            </Typography> */}
+           <Collaboraters />
             <Button
               variant="outlined"
               onClick={handleOpen}
@@ -176,7 +177,7 @@ export const Gallery = () => {
             </Grid>
           ))}
         </Grid>
-        <InviteCollaboratersModal open={open} handleClose={handleClose} />
+        <InviteCollaboratersModal open={open} handleClose={setOpen} />
         {detailDrawer && selectedVideo && (
           <VideoDetails
             open={detailDrawer}

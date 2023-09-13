@@ -66,7 +66,7 @@ export const LeftNavBar = ({ isSideBar }: Props) => {
         padding: isSideBar ? "40px 24px" : "0px",
         flexShrink: 0,
         transition: "all 0.3s",
-        overflow: "scroll",
+        overflowY: "auto",
       }}
     >
       <Box

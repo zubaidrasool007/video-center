@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {
   Card,
   CardContent,
@@ -14,8 +14,10 @@ import {
   OutlineCloseCircleIcon,
   VideoIcon,
   AddSquareIcon,
+  ArrowSwapIcon,
 } from "../../../../public/assets/icons";
 import { SmallAvatar } from "../../../../public/assets/images";
+import { InviteCollaboratersModal } from "@/components/Collaborater/InviteCollaboratersModal";
 
 const styles = {
   textField: {
@@ -97,7 +99,13 @@ const styles = {
 };
 
 export const DefaultSearch = ({ sx }: any) => {
+  const [openCollab, setOpenCollab] = useState(false);
+
+  const handleModal = () => {
+    setOpenCollab(true)
+  }
   return (
+    <Box>
     <Card sx={sx}>
       <CardContent sx={{ px: "22px", py: "18px" }}>
         <Box sx={styles.searchingFeild}>
@@ -181,7 +189,7 @@ export const DefaultSearch = ({ sx }: any) => {
         >
           Quick Actions
         </Typography>
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, cursor: "pointer" }}>
           <AddSquareIcon />
           <Typography fontSize="14px" color="#222">
             Create new Video
@@ -203,7 +211,55 @@ export const DefaultSearch = ({ sx }: any) => {
             </Typography>
           </Box>
         </Box>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, cursor: "pointer" }} onClick={handleModal}>
+          <AddSquareIcon />
+          <Typography fontSize="14px" color="#222">
+            Add Collaborater
+          </Typography>
+          <Box
+            sx={{
+              width: 26,
+              height: 22,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "6px",
+              background: "rgba(249, 249, 249, 0.87)",
+              ml: "auto",
+            }}
+          >
+            <Typography fontSize="12px" color="#929292" fontWeight={500}>
+              A
+            </Typography>
+          </Box>
+        </Box>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, cursor: "pointer" }}>
+          <ArrowSwapIcon />
+          <Typography fontSize="14px" color="#222">
+           Move File
+          </Typography>
+          <Box
+            sx={{
+              width: 26,
+              height: 22,
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              borderRadius: "6px",
+              background: "rgba(249, 249, 249, 0.87)",
+              ml: "auto",
+            }}
+          >
+            <Typography fontSize="12px" color="#929292" fontWeight={500}>
+              M
+            </Typography>
+          </Box>
+        </Box>
       </CardContent>
     </Card>
+      <Box>
+      <InviteCollaboratersModal open={openCollab} handleClose={setOpenCollab} />
+    </Box>
+    </Box>
   );
 };

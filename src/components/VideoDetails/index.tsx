@@ -17,6 +17,7 @@ import {
   OutlineMoreIcon,
 } from "../../../public/assets/icons";
 import Image from "next/image";
+import { Collaboraters } from "../Collaborater/Collaboraters";
 import { InviteCollaboratersModal } from "../Collaborater/InviteCollaboratersModal";
 
 export const VideoDetails = ({ item, onClose, open }: any) => {
@@ -80,6 +81,7 @@ export const VideoDetails = ({ item, onClose, open }: any) => {
                 alignItems: "center",
                 cursor: "pointer",
               }}
+              onClick={onClose}
             >
               <OutlineArrowLeft sx={{ m: "auto" }} />
             </Box>
@@ -117,10 +119,10 @@ export const VideoDetails = ({ item, onClose, open }: any) => {
                 mb: 2,
               }}
             >
-              <Typography color="#222" fontSize="14px">
+              {/* <Typography color="#222" fontSize="14px">
                 Collaboraters :
-              </Typography>
-              Avatar
+              </Typography> */}
+             <Collaboraters />
               <Button
                 variant="outlined"
                 onClick={addCollaborater}
@@ -232,7 +234,7 @@ export const VideoDetails = ({ item, onClose, open }: any) => {
         </Box>
       </Drawer>
       <Box>
-        <InviteCollaboratersModal open={openCollab} handleClose={() => { setOpenCollab(false) }} />
+        <InviteCollaboratersModal open={openCollab} handleClose={setOpenCollab} />
       </Box>
     </Box>
   );
