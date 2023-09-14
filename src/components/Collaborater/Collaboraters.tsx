@@ -76,6 +76,7 @@ export const Collaboraters = () => {
             alignItems: "cenetr",
             gap: "57px",
             borderRadius: "16px",
+            position: "absolute",
             zIndex: 9999,
           }}
           ref={collabModalRef}
