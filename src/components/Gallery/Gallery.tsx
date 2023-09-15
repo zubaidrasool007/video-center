@@ -26,6 +26,7 @@ export const Gallery = () => {
   const [detailDrawer, setDetailDrawer] = useState(false);
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [selectedVideoIndex, setSelectedVideoIndex] = useState(null);
+  const [tabValue, setTabValue] = useState("All")
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -48,6 +49,9 @@ export const Gallery = () => {
     setSelectedVideoIndex(null);
   };
 
+  const handleChangeTab = (event: React.SyntheticEvent, newValue: string) => {
+    setTabValue(newValue)
+  }
   return (
     <Box sx={{ p: 3, width: "100%" }}>
       <Box sx={{ p: 3, background: "#F9F9F9", borderRadius: "32px" }}>
@@ -108,15 +112,21 @@ export const Gallery = () => {
           }}
         >
           <Tabs
-            // value={value}
-            // onChange={handleChange}
+            value={tabValue}
+            onChange={handleChangeTab}
             aria-label="basic tabs example"
-            sx={{ "& .MuiTabs-flexContainer": { gap: 1 } }}
+            sx={{ "& .MuiTabs-flexContainer": { gap: 1 }, "& .MuiTabs-indicator":{
+              display:"none"
+            }, "& .Mui-selected":{
+              background:"#222",
+              color:"#fff !important"
+            }}}
           >
             {tabs.map((tab, i) => (
               <Tab
                 key={i}
                 label={tab}
+                value={tab}
                 sx={{
                   borderRadius: "27px",
                   border: "1px solid #C5C5C5",
@@ -124,6 +134,13 @@ export const Gallery = () => {
                   fontSize: "14px",
                   padding: "12px 16px",
                   textTransform: "capitalize",
+                  '& .Mui-selected':{
+                    color:"#fff"
+                  },
+                  '& .MuiTabs-indicator':{
+                   background:"transparent "
+
+                  }
                 }}
               />
             ))}
